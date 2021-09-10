@@ -6,8 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CityNotFoundException extends RuntimeException {
-    private String city;
-
+    private final String city;
     public CityNotFoundException(String city) {
         this.city = city;
     }

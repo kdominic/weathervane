@@ -34,7 +34,7 @@ public class ApiKeyFilter implements WebFilter {
         List<String> apiKeyHeader;
         apiKeyHeader = request.getHeaders().get(apiSecurityConfig.getApiKeyHeaderName());
 
-        if (apiKeyHeader == null || apiKeyHeader.size() == 0) {
+        if (apiKeyHeader == null || apiKeyHeader.isEmpty()) {
             log.error("Missing APIKey header");
             return rejectRequest(response, HttpStatus.UNAUTHORIZED);
         }
