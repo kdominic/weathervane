@@ -214,6 +214,7 @@ Created 2 services (interface+implementation):
 * one for calling the OpenWeatherMap API
 * one for implementing the rest of the logic and handling errors
 
+The source code was checked with SonarLint for a minimal quality check.
 
 ### Error handling
 
