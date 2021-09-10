@@ -1,0 +1,60 @@
+logging:
+  level:
+    ROOT: ERROR
+    com.assignment.spring: ERROR
+
+spring:
+  profiles:
+    active: prod
+  datasource:
+    url: jdbc:postgresql://localhost:5432/weather
+    username: postgres
+    password: user
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  liquibase:
+    change-log: classpath:liquibase/master.xml
+  devtools:
+    add-properties: false
+#  zipkin:
+#    baseUrl: <TBD>
+
+management:
+  server:
+    port: 8080
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+    health:
+      sensitive: false
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+    export:
+      prometheus:
+        enabled: true
+
+springdoc:
+  swagger-ui:
+    operationsSorter: method
+
+weather-server:
+  url-base: http://api.openweathermap.org
+  url-ep: /data/2.5/weather
+  app-id: 0dfbe2718bf191168a9120f515982533
+  retries: 3
+  timeout: 5000
+
+api-security:
+  api-key-header-name: x-api-key
+  api-key-secret: 4VHZLCpYFB47P6u2jdbpNX7pGdruNXDo
