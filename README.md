@@ -112,11 +112,13 @@ http://127.0.0.1:8080/swagger-ui.html
 * Added Spring AOP
 * Added `micrometer-registry-prometheus` (for timing the duration of a call)
 * Added `spring-boot-devtools`
+* Added H2 database for tests only
 
 ### Configuration changes
 The configuration was configured for 2 profiles:
 * dev - `application-dev.yml`
 * prod - `application-prod.yml`
+* test - `application-test.yml` (in test)
 
 #### File `application-dev.yml` with comments
 ```yaml
@@ -240,7 +242,13 @@ Added liquibase-related files in resources:
 
 ### Tests
 
-Test are only run on the `dev` profile. 
+Test are run on the `test` profile. Tests cover the "happy flow" and all handled errors (missing city, missing or wrong API Key, city not found).
+
+To run tests, open a shell window, navigate to the project root directory and execute the command:
+
+```
+mvn test
+```
 
 > For any further information, please contact me on kristaly.dominic@gmail.com
 

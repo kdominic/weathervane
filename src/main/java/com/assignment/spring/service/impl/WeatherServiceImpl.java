@@ -53,7 +53,8 @@ public class WeatherServiceImpl implements WeatherService {
                 })
                 .onErrorResume(throwable -> {
 
-                    log.error("Error while processing request. Stacktrace: ", throwable);
+                    log.error("Error while processing request");
+                    log.debug("Error while processing request. Stacktrace: ", throwable);
 
                     if (throwable instanceof GenericApiException) {
                         return buildErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR,

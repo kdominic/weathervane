@@ -27,6 +27,7 @@
         <lombok.version>1.18.20</lombok.version>
         <springdocopenapiwebfluxui.version>1.5.10</springdocopenapiwebfluxui.version>
         <springbootmavenplugin.version>2.3.12.RELEASE</springbootmavenplugin.version>
+        <springcloudstartersleuth.version>2.2.8.RELEASE</springcloudstartersleuth.version>
     </properties>
 
     <dependencyManagement>
@@ -84,6 +85,7 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>
+            <version>${springcloudstartersleuth.version}</version>
         </dependency>
 
         <dependency>
