@@ -27,9 +27,7 @@ import java.util.Optional;
 @RequestMapping("api/v1")
 @Tag(name = "Weather API", description = "Weather API for fetching and persisting data")
 public class WeatherController {
-
     private final WeatherService weatherService;
-
     @CrossOrigin
     @GetMapping("/fetch-weather")
     @Timed(value = "fetch-weather.time", description = "Time for retrieving weather data")
@@ -52,6 +50,7 @@ public class WeatherController {
                             schema = @Schema(implementation = ErrorResponse.class)))})
     public Mono<ResponseEntity<Object>> retrieveWeather(@RequestParam(name = "city") Optional<String> city) {
         log.info("Received request for /fetch-weather: " + city);
+
         if (!city.isPresent()) {
             return Mono.just(ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
